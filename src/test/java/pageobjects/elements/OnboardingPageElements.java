@@ -10,15 +10,13 @@ public class OnboardingPageElements extends AppiumDriverHandler {
 
     private final AndroidDriver driver;
 
+    public OnboardingPageLocators onboardingPageLocators = new OnboardingPageLocators();
+
     public OnboardingPageElements() {
         this.driver = getDriver();
     }
 
-    public OnboardingPageLocators onboardingPageLocators = new OnboardingPageLocators();
-
-    WebElement addLangContainer = getDriver().findElement(By.id(onboardingPageLocators.ADD_LANG_CONTAINER));
-
     public WebElement getAddLangContainer() {
-        return addLangContainer;
+        return driver.findElement(By.id(onboardingPageLocators.ADD_LANG_CONTAINER));
     }
 }

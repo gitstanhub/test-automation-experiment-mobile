@@ -16,4 +16,14 @@ public class OnboardingPage extends AppiumDriverHandler {
 
         return this;
     }
+
+    public OnboardingPage verifyOnboardingPageIsSelected(String pageNumberAccessibilityData) {
+        elementChecks.assertElementAccessibilityId(pageNumberAccessibilityData, onboardingPageElements.getOnboardingPageIndicator());
+        return this;
+    }
+
+    public OnboardingPage pressContinueButton() {
+        onboardingPageElements.getOnboardingForwardButton().click();
+        return this;
+    }
 }

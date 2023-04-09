@@ -1,6 +1,8 @@
 package pageobjects.pages;
 
 import base.AppiumDriverHandler;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobjects.elements.CommonPageElements;
 import pageobjects.elements.OnboardingPageElements;
 import utils.assertions.ElementChecks;

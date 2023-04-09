@@ -4,6 +4,7 @@ import base.AppiumDriverHandler;
 import io.appium.java_client.android.AndroidDriver;
 import locators.CommonPageLocators;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,18 +20,26 @@ public class CommonPageElements extends AppiumDriverHandler {
     }
 
     public WebElement getPrimaryTextView() {
-        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.PRIMARY_TEXT_VIEW)));
-//        return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
+//                    return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
+
+
+        try {
+            return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
+        } catch (StaleElementReferenceException e) {
+            return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
+        }
     }
 
+
+    //        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.PRIMARY_TEXT_VIEW)));
     public WebElement getSecondaryTextView() {
-        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.SECONDARY_TEXT_VIEW)));
-//        return driver.findElement(By.id(commonPageLocators.SECONDARY_TEXT_VIEW));
+//        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.SECONDARY_TEXT_VIEW)));
+        return driver.findElement(By.id(commonPageLocators.SECONDARY_TEXT_VIEW));
     }
 
     public WebElement getImageViewCentered() {
-        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.IMAGE_VIEW_CENTERED)));
+//        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.IMAGE_VIEW_CENTERED)));
 
-//        return driver.findElement(By.id(commonPageLocators.IMAGE_VIEW_CENTERED));
+        return driver.findElement(By.id(commonPageLocators.IMAGE_VIEW_CENTERED));
     }
 }

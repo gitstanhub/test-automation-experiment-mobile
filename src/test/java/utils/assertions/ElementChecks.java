@@ -17,7 +17,11 @@ public class ElementChecks extends AppiumDriverHandler {
         Assertions.assertTrue(element.isDisplayed(), "Element with id: " + element.getAttribute("resource-id") + " is not visible");
     }
 
-    public void assertElementAccessibilityId(String value, WebElement element) {
-        Assertions.assertEquals(value, element.getAttribute("content-desc"));
+    public void assertElementAccessibilityId(String expectedValue, WebElement element) {
+        Assertions.assertEquals(expectedValue, element.getAttribute("content-desc"));
+    }
+
+    public void assertElementContainsText(String expectedText, WebElement element) {
+        Assertions.assertEquals(expectedText, element.getText());
     }
 }

@@ -8,9 +8,15 @@ public class OnboardingScreenTest extends WikiAppTestBase {
 
     @Test
     public void onboardingScreenTest() {
-        onboardingPage.verifyLangListContainerIsVisible()
-                .verifyOnboardingPageIsSelected("Page 1 of 4")
-                .pressContinueButton();
-    }
+        onboardingPage
+                .verifyOnboardingImageIsDisplayed()
+                .verifyPageTitle("The Free Encyclopedia\n" +
+                        "…in over 300 languages")
+                .verifyPageBodyText("We’ve found the following on your device:")
+                .verifyLangListContainerIsVisible()
+                .verifyOnboardingPageIsSelected("Page 1 of 4");
 
+
+        onboardingPage.pressContinueButton();
+    }
 }

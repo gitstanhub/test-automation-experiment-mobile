@@ -4,9 +4,11 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
@@ -14,6 +16,7 @@ import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 public class AppiumDriverHandler {
 
     private static AndroidDriver driver;
+    private WebDriverWait wait;
 
     @BeforeEach
     public void setUp() throws MalformedURLException {
@@ -46,5 +49,10 @@ public class AppiumDriverHandler {
             }
         }
         return driver;
+    }
+
+    public WebDriverWait getWait() {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait;
     }
 }

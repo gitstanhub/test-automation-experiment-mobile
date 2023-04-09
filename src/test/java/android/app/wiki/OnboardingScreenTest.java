@@ -17,6 +17,11 @@ public class OnboardingScreenTest extends WikiAppTestBase {
                 .verifyOnboardingPageIsSelected("Page 1 of 4");
 
 
-        onboardingPage.pressContinueButton();
+        onboardingPage
+                .pressContinueButton()
+                .verifyPageTitle("New ways to explore")
+                .verifyPageBodyText("Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. \n" +
+                        "Customize the feed to your interests – whether it’s learning about historical events On this day, or rolling the dice with Random.")
+                .verifyOnboardingPageIsSelected("Page 2 of 4");
     }
 }

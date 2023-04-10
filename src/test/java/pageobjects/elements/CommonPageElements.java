@@ -20,14 +20,14 @@ public class CommonPageElements extends AppiumDriverHandler {
     }
 
     public WebElement getPrimaryTextView() {
-//                    return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
+        return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
 
 
-        try {
-            return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
-        } catch (StaleElementReferenceException e) {
-            return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
-        }
+//        try {
+//            return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
+//        } catch (StaleElementReferenceException e) {
+//            return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
+//        }
     }
 
 
@@ -39,7 +39,15 @@ public class CommonPageElements extends AppiumDriverHandler {
 
     public WebElement getImageViewCentered() {
 //        return getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.IMAGE_VIEW_CENTERED)));
-
+        getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.IMAGE_VIEW_CENTERED)));
         return driver.findElement(By.id(commonPageLocators.IMAGE_VIEW_CENTERED));
+    }
+
+    public WebElement getSwitchContainer() {
+        return driver.findElement(By.id(commonPageLocators.SWITCH_CONTAINER));
+    }
+
+    public WebElement getSwitchView() {
+        return driver.findElement(By.id(commonPageLocators.SWITCH_VIEW));
     }
 }

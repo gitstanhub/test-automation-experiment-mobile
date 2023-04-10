@@ -1,6 +1,7 @@
 package pageobjects.pages;
 
 import base.AppiumDriverHandler;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobjects.elements.CommonPageElements;
@@ -32,7 +33,12 @@ public class OnboardingPage extends AppiumDriverHandler {
     }
 
     public OnboardingPage verifyPageTitle(String pageTitleText) {
-        elementChecks.assertElementContainsText(pageTitleText, commonPageElements.getPrimaryTextView());
+        try {
+            elementChecks.assertElementContainsText(pageTitleText, commonPageElements.getPrimaryTextView());
+        } catch (StaleElementReferenceException e) {
+            commonPageElements = new CommonPageElements();
+            elementChecks.assertElementContainsText(pageTitleText, commonPageElements.getPrimaryTextView());
+        }
         return this;
     }
 
@@ -43,6 +49,28 @@ public class OnboardingPage extends AppiumDriverHandler {
 
     public OnboardingPage verifyOnboardingImageIsDisplayed() {
         elementChecks.assertElementVisible(commonPageElements.getImageViewCentered());
+        return this;
+    }
+
+
+    public OnboardingPage verifySwitchContainerIsDisplayed() {
+        elementChecks.assertElementVisible(commonPageElements.getSwitchContainer());
+        elementChecks.assertElementVisible(commonPageElements.getSwitchView());
+        return this;
+    }
+
+    public OnboardingPage verifyDoneButtonIsDisplayed() {
+        elementChecks.assertElementVisible(onboardingPageElements.getOnboardingDoneButton());
+        return this;
+    }
+
+    public OnboardingPage pressDoneButton() {
+        onboardingPageElements.getOnboardingDoneButton().click();
+        return this;
+    }
+
+    public OnboardingPage pressSkipButton() {
+        onboardingPageElements.getOnboardingSkipButton().click();
         return this;
     }
 }

@@ -14,7 +14,6 @@ public class OnboardingPageElements extends AppiumDriverHandler {
     public OnboardingPageLocators onboardingPageLocators = new OnboardingPageLocators();
 
 
-
     public OnboardingPageElements() {
         this.driver = getDriver();
     }
@@ -43,5 +42,7 @@ public class OnboardingPageElements extends AppiumDriverHandler {
         return driver.findElement(By.id(onboardingPageLocators.ONBOARDING_FORWARD_BUTTON));
     }
 
-
-}
+    public WebElement getOnboardingDoneButton() {
+        return driver.findElement(By.id(onboardingPageLocators.ONBOARDING_DONE_BUTTON));
+    }
+    }

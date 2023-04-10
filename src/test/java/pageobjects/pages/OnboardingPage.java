@@ -10,9 +10,9 @@ import utils.assertions.ElementChecks;
 
 public class OnboardingPage extends AppiumDriverHandler {
 
-    ElementChecks elementChecks = new ElementChecks();
-    OnboardingPageElements onboardingPageElements = new OnboardingPageElements();
-    CommonPageElements commonPageElements = new CommonPageElements();
+    private final ElementChecks elementChecks = new ElementChecks();
+    private final OnboardingPageElements onboardingPageElements = new OnboardingPageElements();
+    private CommonPageElements commonPageElements = new CommonPageElements();
 
     public OnboardingPage verifyLangListContainerIsVisible() {
         elementChecks.assertElementVisible(onboardingPageElements.getLangListContainer());

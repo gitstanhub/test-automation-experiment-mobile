@@ -40,5 +40,13 @@ public class OnboardingScreenTest extends WikiAppTestBase {
                 .verifySwitchContainerIsDisplayed()
                 .verifyOnboardingPageIsSelected("Page 4 of 4")
                 .pressDoneButton();
+
+        explorePage.verifyExplorePageHeaderIsDisplayed();
+        navTab.verifyNavTabIsDisplayed()
+                .verifyExploreButtonIsDisplayed()
+                .verifySavedButtonIsDisplayed()
+                .verifySearchButtonIsDisplayed()
+                .verifyEditsButtonIsDisplayed()
+                .verifyMoreButtonIsDisplayed();
     }
 }

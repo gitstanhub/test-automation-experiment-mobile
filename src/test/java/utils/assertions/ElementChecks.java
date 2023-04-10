@@ -7,12 +7,6 @@ import org.openqa.selenium.WebElement;
 
 public class ElementChecks extends AppiumDriverHandler {
 
-    private AndroidDriver driver;
-
-    public ElementChecks() {
-        this.driver = getDriver();
-    }
-
     public void assertElementVisible(WebElement element) {
         Assertions.assertTrue(element.isDisplayed(), "Element with id: " + element.getAttribute("resource-id") + " is not visible");
     }

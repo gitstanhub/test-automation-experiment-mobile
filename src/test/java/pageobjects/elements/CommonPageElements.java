@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CommonPageElements extends AppiumDriverHandler {
 
     private final AndroidDriver driver;
-    public CommonPageLocators commonPageLocators = new CommonPageLocators();
+    private final CommonPageLocators commonPageLocators = new CommonPageLocators();
 
     public CommonPageElements() {
         this.driver = getDriver();
@@ -49,5 +49,9 @@ public class CommonPageElements extends AppiumDriverHandler {
 
     public WebElement getSwitchView() {
         return driver.findElement(By.id(commonPageLocators.SWITCH_VIEW));
+    }
+
+    public WebElement getSearchBar() {
+        return driver.findElement(By.id(commonPageLocators.SECONDARY_TEXT_VIEW));
     }
 }

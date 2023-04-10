@@ -11,7 +11,7 @@ public class OnboardingPageElements extends AppiumDriverHandler {
 
     private final AndroidDriver driver;
 
-    public OnboardingPageLocators onboardingPageLocators = new OnboardingPageLocators();
+    private final OnboardingPageLocators onboardingPageLocators = new OnboardingPageLocators();
 
 
     public OnboardingPageElements() {

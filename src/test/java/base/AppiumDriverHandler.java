@@ -22,7 +22,7 @@ public class AppiumDriverHandler {
 
     @BeforeEach
     public void setUp() throws MalformedURLException {
-        String deviceHost = "physical";
+        String deviceHost = "browserstack";
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
 
@@ -47,9 +47,17 @@ public class AppiumDriverHandler {
             desiredCapabilities.setCapability("appPackage", "org.wikipedia");
             desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), desiredCapabilities);
+
         } else if (deviceHost.equals("browserstack")) {
-            desiredCapabilities.setCapability("device", "Google Pixel 7 Pro");
-            desiredCapabilities.setCapability("os_version", "13.0");
+            desiredCapabilities.setCapability("deviceName", "Google Pixel 7 Pro");
+            desiredCapabilities.setCapability("platformVersion", "13.0");
+            desiredCapabilities.setCapability("platformName", "android");
+            desiredCapabilities.setCapability("project", "Experiment UI Automation project - Wiki Android");
+            desiredCapabilities.setCapability("build", "Android test build");
+            desiredCapabilities.setCapability("name", "OnboardingScreenTest");
+            desiredCapabilities.setCapability("browserstack.debug", true);
+            desiredCapabilities.setCapability("app", "app_url");
+            driver = new AndroidDriver(new URL("http://"+"username"+":"+"access"+"@"+"hub-cloud.browserstack.com"+"/wd/hub"), desiredCapabilities);
         } else {
             System.out.println("Unknown device host type");
         }

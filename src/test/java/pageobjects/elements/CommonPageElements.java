@@ -20,6 +20,7 @@ public class CommonPageElements extends AppiumDriverHandler {
     }
 
     public WebElement getPrimaryTextView() {
+        getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.PRIMARY_TEXT_VIEW)));
         return driver.findElement(By.id(commonPageLocators.PRIMARY_TEXT_VIEW));
 
 

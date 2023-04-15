@@ -2,7 +2,6 @@ package pageobjects.elements;
 
 import base.AppiumDriverHandler;
 import io.appium.java_client.android.AndroidDriver;
-import locators.CommonPageLocators;
 import locators.OnboardingPageLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,8 +13,8 @@ public class OnboardingPageElements extends AppiumDriverHandler {
     private final OnboardingPageLocators onboardingPageLocators = new OnboardingPageLocators();
 
 
-    public OnboardingPageElements() {
-        this.driver = getDriver();
+    public OnboardingPageElements(AndroidDriver driver) {
+        this.driver = driver;
     }
 
     public WebElement getLangListContainer() {
@@ -45,4 +44,4 @@ public class OnboardingPageElements extends AppiumDriverHandler {
     public WebElement getOnboardingDoneButton() {
         return driver.findElement(By.id(onboardingPageLocators.ONBOARDING_DONE_BUTTON));
     }
-    }
+}

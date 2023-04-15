@@ -11,8 +11,8 @@ public class NavTabElements extends AppiumDriverHandler {
     private final AndroidDriver driver;
     private final NavTabLocators navTabLocators = new NavTabLocators();
 
-    public NavTabElements() {
-        this.driver = getDriver();
+    public NavTabElements(AndroidDriver driver) {
+        this.driver = driver;
     }
 
     public WebElement getNavTab() {

@@ -8,7 +8,7 @@ import utils.assertions.ElementChecks;
 public class NavTab extends AppiumDriverHandler {
 
     private final ElementChecks elementChecks = new ElementChecks();
-    private final NavTabElements navTabElements = new NavTabElements();
+    private final NavTabElements navTabElements = new NavTabElements(getDriver());
 
     public NavTab verifyNavTabIsDisplayed() {
         elementChecks.assertElementVisible(navTabElements.getNavTab());

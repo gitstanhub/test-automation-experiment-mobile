@@ -5,11 +5,11 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class AppiumMobileDriverActions extends AppiumDriverHandler {
 
-    private AndroidDriver driver;
-
-    public AppiumMobileDriverActions() {
-        this.driver = getDriver();
-    }
+//    private AndroidDriver driver;
+//
+//    public AppiumMobileDriverActions() {
+//        this.driver = getDriver();
+//    }
 
 
 }

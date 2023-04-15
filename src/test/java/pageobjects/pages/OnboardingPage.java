@@ -1,6 +1,7 @@
 package pageobjects.pages;
 
 import base.AppiumDriverHandler;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,9 +11,15 @@ import utils.assertions.ElementChecks;
 
 public class OnboardingPage extends AppiumDriverHandler {
 
-    private final ElementChecks elementChecks = new ElementChecks();
-    private final OnboardingPageElements onboardingPageElements = new OnboardingPageElements();
-    private CommonPageElements commonPageElements = new CommonPageElements();
+    private final ElementChecks elementChecks;
+    private final OnboardingPageElements onboardingPageElements;
+    private CommonPageElements commonPageElements;
+
+    public OnboardingPage(AndroidDriver driver) {
+        elementChecks = new ElementChecks();
+        onboardingPageElements = new OnboardingPageElements(driver);
+        commonPageElements = new CommonPageElements(driver);
+    }
 
     public OnboardingPage verifyLangListContainerIsVisible() {
         elementChecks.assertElementVisible(onboardingPageElements.getLangListContainer());
@@ -36,7 +43,7 @@ public class OnboardingPage extends AppiumDriverHandler {
         try {
             elementChecks.assertElementContainsText(pageTitleText, commonPageElements.getPrimaryTextView());
         } catch (StaleElementReferenceException e) {
-            commonPageElements = new CommonPageElements();
+            commonPageElements = new CommonPageElements(getDriver());
             elementChecks.assertElementContainsText(pageTitleText, commonPageElements.getPrimaryTextView());
         }
         return this;

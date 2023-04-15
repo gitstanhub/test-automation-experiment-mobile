@@ -1,12 +1,19 @@
 package base;
 
+import io.appium.java_client.android.AndroidDriver;
 import pageobjects.pages.ExplorePage;
 import pageobjects.pages.NavTab;
 import pageobjects.pages.OnboardingPage;
 
-public class WikiAppTestBase {
+public class WikiAppTestBase extends AppiumDriverHandler {
+    public OnboardingPage onboardingPage;
+    public ExplorePage explorePage;
+    public NavTab navTab;
 
-    public OnboardingPage onboardingPage = new OnboardingPage();
-    public ExplorePage explorePage = new ExplorePage();
-    public NavTab navTab = new NavTab();
+    public WikiAppTestBase() {
+        AndroidDriver driver = getDriver();
+        onboardingPage = new OnboardingPage(driver);
+        explorePage = new ExplorePage(driver);
+        navTab = new NavTab();
+    }
 }

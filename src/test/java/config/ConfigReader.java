@@ -2,13 +2,20 @@ package config;
 
 import org.aeonbits.owner.ConfigFactory;
 
-public enum ConfigReader {
-    INSTANCE;
+public class ConfigReader {
 
-    private static final AndroidDriverConfig androidDriverConfig = ConfigFactory.create(
-            AndroidDriverConfig.class, System.getProperties());
+    private static ConfigReader configReader;
+    private static final AndroidDriverConfig androidDriverConfig = ConfigFactory.create(AndroidDriverConfig.class, System.getProperties());
 
-    public AndroidDriverConfig read() {
+    public static ConfigReader getConfigReader() {
+        if (configReader == null) {
+            configReader = new ConfigReader();
+        }
+        return configReader;
+    }
+
+    public AndroidDriverConfig getAndroidDriverConfig() {
         return androidDriverConfig;
     }
+
 }

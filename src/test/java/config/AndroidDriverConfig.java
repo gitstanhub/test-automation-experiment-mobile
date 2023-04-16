@@ -9,4 +9,9 @@ import org.aeonbits.owner.Config;
 })
 
 public interface AndroidDriverConfig extends Config {
+
+    @Key("deviceHost")
+    String deviceHost();
+
+
 }

@@ -9,13 +9,14 @@ import utils.assertions.ElementChecks;
 
 public class ExplorePage extends AppiumDriverHandler {
 
-    private final AndroidDriver driver;
-    private final ExplorePageElements explorePageElements = new ExplorePageElements();
-    private final CommonPageElements commonPageElements = new CommonPageElements();
-    private final ElementChecks elementChecks = new ElementChecks();
+    private final ExplorePageElements explorePageElements;
+    private final CommonPageElements commonPageElements;
+    private final ElementChecks elementChecks;
 
-    public ExplorePage() {
-        this.driver = getDriver();
+    public ExplorePage(AndroidDriver driver) {
+        explorePageElements = new ExplorePageElements(driver);
+        commonPageElements = new CommonPageElements(driver);
+        elementChecks = new ElementChecks();
     }
 
     public ExplorePage verifyExplorePageHeaderIsDisplayed() {

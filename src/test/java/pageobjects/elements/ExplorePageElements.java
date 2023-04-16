@@ -15,8 +15,8 @@ public class ExplorePageElements extends AppiumDriverHandler {
     private final AndroidDriver driver;
     private final CommonPageLocators commonPageLocators = new CommonPageLocators();
 
-    public ExplorePageElements() {
-        this.driver = getDriver();
+    public ExplorePageElements(AndroidDriver driver) {
+        this.driver = driver;
     }
 
     public WebElement getExplorePageHeader() {

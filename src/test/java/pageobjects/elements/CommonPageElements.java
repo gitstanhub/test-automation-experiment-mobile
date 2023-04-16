@@ -15,8 +15,8 @@ public class CommonPageElements extends AppiumDriverHandler {
     private final AndroidDriver driver;
     private final CommonPageLocators commonPageLocators = new CommonPageLocators();
 
-    public CommonPageElements() {
-        this.driver = getDriver();
+    public CommonPageElements(AndroidDriver driver) {
+        this.driver = driver;
     }
 
     public WebElement getPrimaryTextView() {

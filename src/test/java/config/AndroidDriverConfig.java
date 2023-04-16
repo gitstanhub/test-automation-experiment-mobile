@@ -31,27 +31,33 @@ public interface AndroidDriverConfig extends Config {
     @Key("appActivity")
     String appActivity();
 
-    @Key("buildName")
-    String buildName();
-
     @Key("remoteUrl")
     String remoteUrl();
 
-    @Key("projectName")
-    String projectName();
+    @Key("browserstackBuildName")
+    String browserstackBuildName();
 
-    @Key("testRunName")
-    String testRunName();
+    @Key("browserstackRemoteUrl")
+    String browserstackRemoteUrl();
 
-    @Key("browserStackDebug")
-    boolean browserStackDebug();
+    @Key("browserstackProjectName")
+    String browserstackProjectName();
 
-    @Key("browserStackAppUrl")
-    String browserStackAppUrl();
+    @Key("browserstackTestRunName")
+    String browserstackTestRunName();
 
-    @Key("browserStackUsername")
-    String browserStackUsername();
+    @Key("browserstackDebug")
+    boolean browserstackDebug();
 
-    @Key("browserStackAccessToken")
-    String browserStackAccessToken();
+    @Key("browserstackAppUrl")
+    String browserstackAppUrl();
+
+    @Key("browserstackUsername")
+    String browserstackUsername();
+
+    @Key("browserstackAccessToken")
+    String browserstackAccessToken();
+
+    @Key("browserstackPlatformName")
+    String browserstackPlatformName();
 }

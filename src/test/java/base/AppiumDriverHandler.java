@@ -38,7 +38,7 @@ public class AppiumDriverHandler {
                 System.out.println("Emulator is selected");
                 break;
 
-            case "realdevice":
+            case "real-device":
                 desiredCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + androidConfig.appRootPath());
                 desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, ANDROID);
                 desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, ANDROID_UIAUTOMATOR2);
@@ -52,15 +52,15 @@ public class AppiumDriverHandler {
                 break;
 
             case "browserstack":
-                desiredCapabilities.setCapability("deviceName", "");
-                desiredCapabilities.setCapability("platformVersion", "");
-                desiredCapabilities.setCapability("platformName", "");
-                desiredCapabilities.setCapability("project", "");
-                desiredCapabilities.setCapability("build", "");
-                desiredCapabilities.setCapability("name", "");
-                desiredCapabilities.setCapability("browserstack.debug", "");
-                desiredCapabilities.setCapability("app", "");
-                driver = new AndroidDriver(new URL("http://" + "username" + ":" + "access" + "@" + "hub-cloud.browserstack.com" + "/wd/hub"), desiredCapabilities);
+                desiredCapabilities.setCapability("deviceName", androidConfig.deviceName());
+                desiredCapabilities.setCapability("platformVersion", androidConfig.platformVersion());
+                desiredCapabilities.setCapability("platformName", androidConfig.browserstackPlatformName());
+                desiredCapabilities.setCapability("project", androidConfig.browserstackProjectName());
+                desiredCapabilities.setCapability("build", androidConfig.browserstackBuildName());
+                desiredCapabilities.setCapability("name", androidConfig.browserstackTestRunName());
+                desiredCapabilities.setCapability("browserstack.debug", androidConfig.browserstackDebug());
+                desiredCapabilities.setCapability("app", androidConfig.browserstackAppUrl());
+                driver = new AndroidDriver(new URL(String.format(androidConfig.browserstackRemoteUrl(), androidConfig.browserstackUsername(), androidConfig.browserstackAccessToken())), desiredCapabilities);
                 System.out.println("Browserstack is selected");
                 break;
 

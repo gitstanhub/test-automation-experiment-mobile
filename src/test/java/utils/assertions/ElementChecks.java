@@ -1,7 +1,6 @@
 package utils.assertions;
 
-import base.AppiumDriverHandler;
-import io.appium.java_client.android.AndroidDriver;
+import driver.AppiumDriverHandler;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 

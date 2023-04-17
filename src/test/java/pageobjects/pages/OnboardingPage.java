@@ -1,10 +1,8 @@
 package pageobjects.pages;
 
-import base.AppiumDriverHandler;
+import driver.AppiumDriverHandler;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobjects.elements.CommonPageElements;
 import pageobjects.elements.OnboardingPageElements;
 import utils.assertions.ElementChecks;
@@ -80,4 +78,6 @@ public class OnboardingPage extends AppiumDriverHandler {
         onboardingPageElements.getOnboardingSkipButton().click();
         return this;
     }
+
+    
 }

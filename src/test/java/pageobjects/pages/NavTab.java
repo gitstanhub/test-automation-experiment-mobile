@@ -1,7 +1,6 @@
 package pageobjects.pages;
 
-import base.AppiumDriverHandler;
-import io.appium.java_client.android.AndroidDriver;
+import driver.AppiumDriverHandler;
 import pageobjects.elements.NavTabElements;
 import utils.assertions.ElementChecks;
 

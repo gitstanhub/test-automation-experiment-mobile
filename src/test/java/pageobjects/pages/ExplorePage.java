@@ -1,8 +1,7 @@
 package pageobjects.pages;
 
-import base.AppiumDriverHandler;
+import driver.AppiumDriverHandler;
 import io.appium.java_client.android.AndroidDriver;
-import org.checkerframework.checker.units.qual.C;
 import pageobjects.elements.CommonPageElements;
 import pageobjects.elements.ExplorePageElements;
 import utils.assertions.ElementChecks;

@@ -1,6 +1,6 @@
 package pageobjects.elements;
 
-import base.AppiumDriverHandler;
+import driver.AppiumDriverHandler;
 import io.appium.java_client.android.AndroidDriver;
 import locators.NavTabLocators;
 import org.openqa.selenium.By;

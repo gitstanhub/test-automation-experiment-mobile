@@ -78,6 +78,4 @@ public class OnboardingPage extends AppiumDriverHandler {
         onboardingPageElements.getOnboardingSkipButton().click();
         return this;
     }
-
-    
 }

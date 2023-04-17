@@ -39,6 +39,6 @@ public class CommonPageElements extends AppiumDriverHandler {
     }
 
     public WebElement getSearchBar() {
-        return driver.findElement(By.id(commonPageLocators.SECONDARY_TEXT_VIEW));
+        return driver.findElement(By.id(commonPageLocators.SEARCH_CONTAINER));
     }
 }

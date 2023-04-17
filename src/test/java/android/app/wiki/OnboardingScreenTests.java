@@ -8,6 +8,7 @@ public class OnboardingScreenTests extends WikiAppTestBase {
 
     @Test
     public void onboardingCompleteFlowTest() {
+
         onboardingPage
                 .verifyOnboardingImageIsDisplayed()
                 .verifyPageTitle(onboardingPageConstants.FIRST_PAGE_TITLE)
@@ -36,10 +37,14 @@ public class OnboardingScreenTests extends WikiAppTestBase {
                 .verifyPageBodyText(onboardingPageConstants.FOURTH_PAGE_BODY_TEXT)
                 .verifySwitchContainerIsDisplayed()
                 .verifyOnboardingPageIsSelected(onboardingPageConstants.FOURTH_PAGE_INDICATOR_TEXT)
+                .verifyDoneButtonIsDisplayed()
                 .pressDoneButton();
 
-        explorePage.verifyExplorePageHeaderIsDisplayed();
-        navTab.verifyNavTabIsDisplayed()
+        explorePage
+                .verifyExplorePageHeaderIsDisplayed()
+                .verifySearchBarIsDisplayed();
+        navTab
+                .verifyNavTabIsDisplayed()
                 .verifyExploreButtonIsDisplayed()
                 .verifySavedButtonIsDisplayed()
                 .verifySearchButtonIsDisplayed()

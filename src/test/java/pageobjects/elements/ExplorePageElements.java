@@ -25,5 +25,4 @@ public class ExplorePageElements extends AppiumDriverHandler {
         getWait().until(ExpectedConditions.presenceOfElementLocated(By.id(commonPageLocators.MAIN_TOOLBAR_WORDMARK)));
         return driver.findElement(By.id(commonPageLocators.MAIN_TOOLBAR_WORDMARK));
     }
-
 }
